@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="cover-main">
+  <header class="heading" data-fit>{{ ad.heading }}</header>
+  <h1 data-fit>{{ ad.title }}</h1>
+  <figure class="hero"><img src="{{ photos[0].uri }}" alt="{{ photos[0].caption }}">{% if photos[0].caption %}<figcaption data-fit>{{ photos[0].caption }}</figcaption>{% endif %}</figure>
+  <footer class="footer" data-fit>{% if logo %}<img class="logo" src="{{ logo }}" alt="교회 로고">{% endif %}<span>{{ ad.footer }}</span></footer>
+</section>
+<aside class="blue-panel" data-fit>
+  {% if ad.paragraphs %}<div class="paragraphs" data-fit>{% for text in ad.paragraphs %}<p data-fit>{{ text }}</p>{% endfor %}</div>{% endif %}
+  {% if ad.facts %}<div class="facts" data-fit>{% for fact in ad.facts %}<p data-fit><span>{{ fact.label }}</span><br><strong>{{ fact.value }}</strong></p>{% endfor %}</div>{% endif %}
+</aside>
+{% endblock %}

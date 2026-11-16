@@ -1,0 +1,17 @@
+{
+  "template": "cover",
+  "heading": "YOUTH WORSHIP",
+  "title": "예배 안내",
+  "worship": {
+    "service_date": "2026-11-15",
+    "service_time": "13:20:00",
+    "church": "샘플 교회",
+    "location": "샘플 예배실",
+    "welcome": "예배 자리에 오신 여러분을\n환영하고 축복합니다 :)",
+    "song_list": [],
+    "service_order": [],
+    "brand": "YES!",
+    "motto": "Ethos Spirit",
+    "confirmed": false
+  }
+}

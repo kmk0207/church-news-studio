@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="memo">
+  <div class="toolbar" aria-hidden="true"><i></i><i></i><i></i></div>
+  <header class="heading" data-fit>{{ ad.heading }}</header>
+  <section class="content" data-fit>
+    <h1 data-fit>{% if ad.highlight_title %}<mark>{{ ad.title }}</mark>{% else %}{{ ad.title }}{% endif %}</h1>
+    {% if ad.paragraphs %}<div class="paragraphs" data-fit>{% for text in ad.paragraphs %}<p data-fit>{{ text }}</p>{% endfor %}</div>{% endif %}
+    {% if photos %}
+    <div class="photos" data-fit>
+      {% for photo in photos %}<figure><img src="{{ photo.uri }}" alt="{{ photo.caption }}">{% if photo.caption %}<figcaption data-fit>{{ photo.caption }}</figcaption>{% endif %}</figure>{% endfor %}
+    </div>
+    {% endif %}
+    {% if ad.facts %}<div class="facts" data-fit>{% for fact in ad.facts %}<p data-fit><span>{{ fact.label }} : </span><strong class="{% if fact.accent %}accent{% endif %}">{{ fact.value }}</strong></p>{% endfor %}</div>{% endif %}
+  </section>
+  <footer class="footer" data-fit>{% if logo %}<img class="logo" src="{{ logo }}" alt="교회 로고">{% endif %}<span>{{ ad.footer }}</span></footer>
+</section>
+{% endblock %}

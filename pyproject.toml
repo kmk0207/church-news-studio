@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "church-studio"
+version = "0.1.0"
+description = "교회 광고 로컬 템플릿 및 PNG 생성 엔진"
+requires-python = ">=3.11"
+dependencies = ["Pillow>=10,<13", "Jinja2>=3.1.6,<4", "pydantic>=2.10,<3", "playwright>=1.49,<2", "numpy>=1.26,<3", "streamlit>=1.42,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+ai = ["google-genai>=1,<3"]
+semantic = ["sentence-transformers>=3,<6"]
+
+[project.scripts]
+church-studio = "church_studio.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+church_studio = ["templates/*.html", "templates/*.css"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = ["integration: 실제 Chromium으로 PNG를 생성하는 검사"]

@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; font-src data:; style-src 'unsafe-inline'; script-src 'none'">
+  <title>{{ ad.title }}</title>
+  <style>{{ stylesheet | safe }}</style>
+  <style>
+    @font-face { font-family: Studio; src: url('{{ font_regular | safe }}'); font-weight: 400; }
+    @font-face { font-family: Studio; src: url('{{ font_bold | safe }}'); font-weight: 700; }
+  </style>
+</head>
+<body>
+<main id="slide" class="{{ ad.template }}" {% if background %}style="background-image: url('{{ background | safe }}')"{% endif %}>
+{% block content %}{% endblock %}
+</main>
+</body>
+</html>

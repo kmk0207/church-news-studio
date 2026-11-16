@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="worship-layout">
+  <header class="worship-heading" data-fit>{{ ad.heading }}</header>
+  <div class="worship-date" data-fit><span>{{ ad.worship.service_date.year }}년</span><strong>{{ ad.worship.date_label }}</strong><span>{{ ad.worship.time_label }}</span></div>
+  <div class="worship-brand" data-fit>{{ ad.worship.brand }}</div>
+  <figure class="worship-photo">
+    {% if photos %}<img src="{{ photos[0].uri }}" alt="{{ photos[0].caption }}">{% else %}<div class="photo-pending" data-fit>교회 사진 등록 대기</div>{% endif %}
+    {% if photos and photos[0].caption %}<figcaption data-fit>{{ photos[0].caption }}</figcaption>{% endif %}
+  </figure>
+  <h1 class="worship-title" data-fit>{{ ad.title }}</h1>
+  <div class="worship-motto" data-fit>{{ ad.worship.motto }}</div>
+  <section class="worship-welcome" data-fit><span class="welcome-label">WELCOME</span><p>{{ ad.worship.welcome }}</p></section>
+  <aside class="song-panel"><h2 data-fit>SONG LIST</h2><ol data-fit>{% for song in ad.worship.song_list %}<li data-fit>{{ song }}</li>{% else %}<li class="pending" data-fit>당일 곡명 입력 대기</li>{% endfor %}</ol></aside>
+  <div class="worship-location" data-fit>{% if logo %}<img class="logo" src="{{ logo }}" alt="교회 로고">{% endif %}<strong>{{ ad.worship.church }}</strong><span>{{ ad.worship.location }}</span></div>
+  <section class="worship-order" data-fit>{% for fact in ad.worship.service_order %}<div class="order-row" data-fit><span>{{ fact.label }}</span><strong>{{ fact.value }}</strong></div>{% endfor %}</section>
+  {% if ad.footer %}<div class="worship-footer" data-fit>{{ ad.footer }}</div>{% endif %}
+  {% if draft %}<div class="draft-label" data-fit>초안 · 사진 / 곡명 / 예배 정보를 확인하세요</div>{% endif %}
+</section>
+{% endblock %}

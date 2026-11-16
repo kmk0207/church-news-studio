@@ -1,0 +1,12 @@
+{
+  "template": "notice",
+  "heading": "01  가상 광고 샘플",
+  "title": "함께하는 감사 나눔 모임",
+  "paragraphs": ["한 주의 감사한 순간을 함께 나눕니다.", "처음 오시는 분도 편안하게 참여해 주세요."],
+  "facts": [
+    {"label": "일시", "value": "가상 일정 · 확정 후 입력", "accent": true},
+    {"label": "장소", "value": "샘플 공간 A (가상)"}
+  ],
+  "footer": "가상 광고 · 실제 일정이 아닙니다",
+  "highlight_title": true
+}
